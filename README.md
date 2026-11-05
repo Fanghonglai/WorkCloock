@@ -30,7 +30,7 @@
 
 ## 快速开始
 
-1. 从 [Releases](https://github.com/Fanghonglai/WorkCloock/releases) 下载 `WorkClock-1.0.3.exe`，双击运行（免安装；首次启动需要几秒解压，请耐心等待）。
+1. 从 [Releases](https://github.com/Fanghonglai/WorkCloock/releases) 下载 `WorkClock-1.0.3-win64.zip`，解压到任意目录（例如 `D:\software\工时打卡`），双击目录里的 `工时打卡.exe` 运行（免安装，不需要 Node.js）。
 2. 第一次打开会弹出「先设置你的时薪」，填上时薪（元/小时）和生效日期，保存。
 3. 到公司点「上班打卡」，下班点「下班打卡」。忘了打卡就在日历页或今日页点「补录时段」。
 4. 月底打开「统计」页，看本月总工时和预计收入，需要的话点「导出 CSV」。
@@ -130,7 +130,7 @@ cmd /c npm run dist
 
 ## 常见问题
 
-- **双击 exe 没反应**：首次启动要解压约一百多 MB，等几秒；若还不行，检查杀毒软件是否拦截了 portable 解压，可改用 `npm run dist:dir` 生成的 `dist\win-unpacked\工时打卡.exe`。
+- **双击 exe 没反应**：zip 版要先完整解压再运行（不要在压缩包里直接双击）；若还不行，检查杀毒软件是否拦截，或改用 `npm run dist:dir` 生成的 `dist\win-unpacked\工时打卡.exe`。
 - **终端里 `npm start` 起不来**：如果环境里设置过 `ELECTRON_RUN_AS_NODE=1`，先执行 `Remove-Item Env:ELECTRON_RUN_AS_NODE` 再启动。
 - **点了 × 程序还在运行**：默认开启“关闭到托盘”，这是正常行为；要彻底退出，右键任务栏托盘里的时钟图标 →「退出」，或在设置页关闭该开关。
 - **改了时薪，上个月金额变了**：说明改的是历史时薪记录；应当新增一条时薪并选择新的生效日期，历史月份就不会动。
@@ -142,7 +142,7 @@ cmd /c npm run dist
 - 单机单用户，没有云同步和多设备合并。
 - 只统计软件里记录的时间，不读取考勤系统。
 - CSV 是 UTF-8 BOM 编码，适合 Excel / WPS；其他工具若显示乱码请按 UTF-8 打开。
-- 没有自动更新，升级需要替换 exe。
+- 没有自动更新，升级需要下载新版 zip 覆盖程序目录（`%APPDATA%\work-clock` 里的数据不受影响）。
 
 ## 版本与更新
 
