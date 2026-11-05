@@ -1,0 +1,62 @@
+{
+  "name": "work-clock",
+  "version": "1.0.3",
+  "description": "每日打卡记录工时，自动统计月工时与收入",
+  "productName": "工时打卡",
+  "main": "src/main/main.js",
+  "author": "Fanghonglai",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fanghonglai/WorkCloock.git"
+  },
+  "homepage": "https://github.com/Fanghonglai/WorkCloock#readme",
+  "bugs": {
+    "url": "https://github.com/Fanghonglai/WorkCloock/issues"
+  },
+  "keywords": [
+    "electron",
+    "work-clock",
+    "attendance",
+    "timesheet",
+    "打卡",
+    "工时统计"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/calc.test.js && node test/store.test.js",
+    "dist": "electron-builder --win portable --x64",
+    "dist:dir": "electron-builder --win dir --x64"
+  },
+  "build": {
+    "appId": "com.local.workclock",
+    "productName": "工时打卡",
+    "artifactName": "WorkClock-${version}.${ext}",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "build/icon.png",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.2.2",
+    "electron-builder": "^26.18.0"
+  }
+}
